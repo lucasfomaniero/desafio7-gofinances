@@ -48,14 +48,14 @@ const Dashboard: React.FC = () => {
           ({ value, created_at }, index) => ({
             ...data.transactions[index],
             formattedValue: formatValue(value),
-            created_at: new Date(created_at),
+            formattedDate: new Date(created_at).toLocaleDateString('pt-br'),
           }),
         );
 
-        formattedTransactions.forEach(({ created_at }, index) => {
-          formattedTransactions[index].formattedDate = `${created_at.getDate()}
-          /${created_at.getMonth() + 1}/${created_at.getFullYear()}`;
-        });
+        // formattedTransactions.forEach(({ created_at }, index) => {
+        //   formattedTransactions[index].formattedDate = `${created_at.getDate()}
+        //   /${created_at.getMonth() + 1}/${created_at.getFullYear()}`;
+        // });
 
         setTransactions(formattedTransactions);
 
